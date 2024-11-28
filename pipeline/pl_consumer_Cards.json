@@ -19,7 +19,13 @@
 						"referenceName": "nb_update_batchexeclog",
 						"type": "NotebookReference"
 					},
-					"snapshot": true
+					"snapshot": true,
+					"conf": {
+						"spark.dynamicAllocation.enabled": null,
+						"spark.dynamicAllocation.minExecutors": null,
+						"spark.dynamicAllocation.maxExecutors": null
+					},
+					"numExecutors": null
 				}
 			},
 			{
@@ -46,11 +52,17 @@
 						"referenceName": "nb_ir_consumer_cards",
 						"type": "NotebookReference"
 					},
-					"snapshot": true
+					"snapshot": true,
+					"conf": {
+						"spark.dynamicAllocation.enabled": null,
+						"spark.dynamicAllocation.minExecutors": null,
+						"spark.dynamicAllocation.maxExecutors": null
+					},
+					"numExecutors": null
 				}
 			},
 			{
-				"name": "Return Exit Value",
+				"name": "Set Exit Value",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
@@ -78,7 +90,7 @@
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "Return Exit Value",
+						"activity": "Set Exit Value",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -101,7 +113,7 @@
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "Return Exit Value",
+						"activity": "Set Exit Value",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -120,31 +132,7 @@
 				}
 			},
 			{
-				"name": "Return Batch Run ID",
-				"type": "SetVariable",
-				"dependsOn": [
-					{
-						"activity": "IR Consumer Cards",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "v_batch_runId",
-					"value": {
-						"value": "@activity('IR Consumer Cards').output",
-						"type": "Expression"
-					}
-				}
-			},
-			{
-				"name": "Return Flag IU",
+				"name": "Return Values",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
@@ -161,6 +149,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "values",
+							"value": {
+								"type": "Expression",
+								"content": "@activity('IR Consumer Cards').output"
+							}
+						}
+					],
 					"setSystemVariable": true
 				}
 			}
