@@ -25,10 +25,6 @@
 						"formatSettings": {
 							"type": "DelimitedTextReadSettings"
 						}
-					},
-					"dataset": {
-						"referenceName": "ds_batchexeclog",
-						"type": "DatasetReference"
 					}
 				}
 			},
@@ -59,10 +55,6 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"pipeline": {
-									"referenceName": "pl_consumer_Cards",
-									"type": "PipelineReference"
-								},
 								"waitOnCompletion": true
 							}
 						},
@@ -86,11 +78,13 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"notebook": {
-									"referenceName": "nb_update_batchexeclog",
-									"type": "NotebookReference"
+								"snapshot": true,
+								"conf": {
+									"spark.dynamicAllocation.enabled": null,
+									"spark.dynamicAllocation.minExecutors": null,
+									"spark.dynamicAllocation.maxExecutors": null
 								},
-								"snapshot": true
+								"numExecutors": null
 							}
 						},
 						{
