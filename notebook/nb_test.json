@@ -20,7 +20,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "57794470-09d1-4612-a014-6f32b437dbbd"
+				"spark.autotune.trackingId": "2557ffb9-c6d5-4df2-96e9-20ab7ffb8b17"
 			}
 		},
 		"metadata": {
@@ -86,7 +86,7 @@
 					"currenttime = datetime.datetime.now()\r\n",
 					"print(currenttime)"
 				],
-				"execution_count": 11
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -104,7 +104,7 @@
 				"source": [
 					"object = 'IR-CC'"
 				],
-				"execution_count": 4
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -112,7 +112,7 @@
 					"batch_run_id = object+'-'+str(currenttime)\r\n",
 					"batch_run_id"
 				],
-				"execution_count": 15
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -130,7 +130,7 @@
 				"source": [
 					"Flag_iu = 'c'"
 				],
-				"execution_count": 16
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -148,7 +148,7 @@
 				"source": [
 					"mssparkutils.notebook.exit(object)"
 				],
-				"execution_count": 22
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -166,7 +166,7 @@
 				"source": [
 					"mssparkutils.notebook.exit({batch_run_id,Flag_iu})"
 				],
-				"execution_count": 23
+				"execution_count": null
 			}
 		]
 	}
