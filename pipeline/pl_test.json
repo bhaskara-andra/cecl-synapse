@@ -40,7 +40,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "v_exit_val",
-					"value": ""
+					"value": {
+						"value": "@activity('Notebook1').output",
+						"type": "Expression"
+					}
 				}
 			},
 			{
