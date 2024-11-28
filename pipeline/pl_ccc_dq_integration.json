@@ -1,0 +1,138 @@
+{
+	"name": "pl_ccc_dq_integration",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"dataset": {
+						"referenceName": "ds_batchexeclog",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(activity('Lookup1').output.firstRow,'COMPLETED')\n",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "IR Consumer Cards",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "pl_consumer_Cards",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						},
+						{
+							"name": "update_batch_status",
+							"type": "SynapseNotebook",
+							"dependsOn": [
+								{
+									"activity": "IR Consumer Cards",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"notebook": {
+									"referenceName": "nb_update_batchexeclog",
+									"type": "NotebookReference"
+								},
+								"snapshot": true
+							}
+						},
+						{
+							"name": "DQ Audit",
+							"type": "ExecutePipeline",
+							"dependsOn": [
+								{
+									"activity": "update_batch_status",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "pl_audit_log",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"v_exit_value": {
+				"type": "String"
+			},
+			"v_batch_runId": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "cecl/instrument_reference/consumer_cards"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-11-28T08:27:27Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}
