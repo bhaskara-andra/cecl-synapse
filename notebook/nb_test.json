@@ -6,6 +6,10 @@
 		},
 		"nbformat": 4,
 		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "sparkSmall",
+			"type": "BigDataPoolReference"
+		},
 		"sessionProperties": {
 			"driverMemory": "28g",
 			"driverCores": 4,
@@ -16,7 +20,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "7ff48867-ed97-491c-a833-f49fe63a8e2b"
+				"spark.autotune.trackingId": "57794470-09d1-4612-a014-6f32b437dbbd"
 			}
 		},
 		"metadata": {
@@ -24,10 +28,25 @@
 			"enableDebugMode": false,
 			"kernelspec": {
 				"name": "synapse_pyspark",
-				"display_name": "python"
+				"display_name": "Synapse PySpark"
 			},
 			"language_info": {
 				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/05997170-d7c1-451d-95b7-6d5011d52907/resourceGroups/ab_rg/providers/Microsoft.Synapse/workspaces/ab-dev-synapse/bigDataPools/sparkSmall",
+				"name": "sparkSmall",
+				"type": "Spark",
+				"endpoint": "https://ab-dev-synapse.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkSmall",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.4",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -48,7 +67,7 @@
 				"source": [
 					"import datetime"
 				],
-				"execution_count": null
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
@@ -64,9 +83,10 @@
 					}
 				},
 				"source": [
-					"currenttime = datetime.datetime()"
+					"currenttime = datetime.datetime.now()\r\n",
+					"print(currenttime)"
 				],
-				"execution_count": null
+				"execution_count": 11
 			},
 			{
 				"cell_type": "code",
@@ -84,14 +104,15 @@
 				"source": [
 					"object = 'IR-CC'"
 				],
-				"execution_count": null
+				"execution_count": 4
 			},
 			{
 				"cell_type": "code",
 				"source": [
-					"batch_run_id = object+'-'+currenttime"
+					"batch_run_id = object+'-'+str(currenttime)\r\n",
+					"batch_run_id"
 				],
-				"execution_count": null
+				"execution_count": 15
 			},
 			{
 				"cell_type": "code",
@@ -109,7 +130,7 @@
 				"source": [
 					"Flag_iu = 'c'"
 				],
-				"execution_count": null
+				"execution_count": 16
 			},
 			{
 				"cell_type": "code",
@@ -127,7 +148,7 @@
 				"source": [
 					"mssparkutils.notebook.exit(object)"
 				],
-				"execution_count": null
+				"execution_count": 22
 			},
 			{
 				"cell_type": "code",
@@ -143,9 +164,9 @@
 					}
 				},
 				"source": [
-					"mssparkutils.notebook.exit(batch_run_id,Flag_iu)"
+					"mssparkutils.notebook.exit({batch_run_id,Flag_iu})"
 				],
-				"execution_count": null
+				"execution_count": 23
 			}
 		]
 	}
