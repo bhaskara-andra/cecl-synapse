@@ -1,0 +1,45 @@
+{
+	"name": "pl_send_email_notification",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET",
+					"url": {
+						"value": "@concat('https://www.googleapis.com/gmail/v1/users/','absr2001@gmail.com/labels')\n",
+						"type": "Expression"
+					},
+					"connectVia": {
+						"referenceName": "AutoResolveIntegrationRuntime",
+						"type": "IntegrationRuntimeReference"
+					}
+				}
+			}
+		],
+		"variables": {
+			"v_exit_value": {
+				"type": "String"
+			},
+			"v_batch_runId": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "cecl/common"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-11-28T08:22:04Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

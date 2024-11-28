@@ -1,0 +1,41 @@
+{
+	"name": "pl_audit_log",
+	"properties": {
+		"activities": [
+			{
+				"name": "DQ Audit",
+				"type": "SynapseNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebook": {
+						"referenceName": "nb_audit_log",
+						"type": "NotebookReference"
+					},
+					"snapshot": true
+				}
+			}
+		],
+		"variables": {
+			"v_exit_value": {
+				"type": "String"
+			},
+			"v_batch_runId": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "cecl/audit_and_dq_framework"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-11-28T08:22:07Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

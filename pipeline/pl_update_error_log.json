@@ -1,0 +1,38 @@
+{
+	"name": "pl_update_error_log",
+	"properties": {
+		"activities": [
+			{
+				"name": "Update Error Log",
+				"type": "SynapseNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebook": {
+						"referenceName": "nb_update_error_log",
+						"type": "NotebookReference"
+					},
+					"snapshot": true
+				}
+			}
+		],
+		"variables": {
+			"v_batch_runId": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "cecl/common"
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-11-28T08:22:11Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}
