@@ -3,23 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Set variable1",
-				"type": "SetVariable",
-				"dependsOn": [],
-				"policy": {
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "v_test",
-					"value": {
-						"value": "@pipeline().RunId",
-						"type": "Expression"
-					}
-				}
-			},
-			{
 				"name": "Notebook1",
 				"type": "SynapseNotebook",
 				"dependsOn": [],
@@ -64,7 +47,7 @@
 				"typeProperties": {
 					"variableName": "v_exit_val",
 					"value": {
-						"value": "@activity('Notebook1').output",
+						"value": "@activity('Notebook1').output.status.Output.result",
 						"type": "Expression"
 					}
 				}
