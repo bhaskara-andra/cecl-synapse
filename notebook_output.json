@@ -1,0 +1,137 @@
+--@activity('Notebook').output.status.Output.result.exitValue
+{
+	"status": {
+		"Status": 1,
+		"ExecutionStatusCode": null,
+		"Output": {
+			"status": {
+				"id": "4",
+				"poolId": null,
+				"sessionAcquiredFromPool": null,
+				"clusterAcquiredFromPool": null,
+				"name": "nb_test_sparkSmall_1732822500",
+				"sparkPoolName": "sparkSmall",
+				"workspaceName": "ab-dev-synapse",
+				"appId": "application_1732822173169_0003",
+				"submitterId": "2864980c-2195-47d6-bc42-d8b4ff8e3e11",
+				"errorInfo": [],
+				"owner": null,
+				"proxyUser": null,
+				"kind": "spark",
+				"isNewLivySession": false,
+				"log": [
+					"stdout: ",
+					"Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/mnt/tmp",
+					"Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/mnt/tmp",
+					"\nstderr: ",
+					"\nYARN Diagnostics: "
+				],
+				"state": "idle",
+				"result": "uncertain",
+				"appInfo": {
+					"sparkUiUrl": "https://web.azuresynapse.net/sparkui/810ab4d0-0a47-49ba-b925-ca05f39a5f93/workspaces/ab-dev-synapse/sparkpools/sparkSmall/sessions/4/applications/application_1732822173169_0003",
+					"impulseErrorCode": null,
+					"isStreamingQueryExists": "false",
+					"impulseClassification": null,
+					"impulseTsg": null,
+					"isSessionTimedOut": "false",
+					"driverLogUrl": "https://web.azuresynapse.net/sparkui/810ab4d0-0a47-49ba-b925-ca05f39a5f93/api/v1/workspaces/ab-dev-synapse/sparkpools/sparkSmall/sessions/4/applications/application_1732822173169_0003/driverlog/stderr"
+				},
+				"livyInfo": {
+					"jobCreationRequest": {
+						"jars": [],
+						"pyFiles": [],
+						"files": [],
+						"driverMemory": "28g",
+						"driverCores": 4,
+						"executorMemory": "28g",
+						"executorCores": 4,
+						"numExecutors": 2,
+						"archives": [],
+						"name": "nb_test_sparkSmall_1732822500",
+						"conf": {
+							"spark.dynamicAllocation.enabled": "false",
+							"spark.dynamicAllocation.minExecutors": "2",
+							"spark.dynamicAllocation.maxExecutors": "2",
+							"spark.autotune.trackingId": "0f6c9e88-57a9-4bf1-b86f-b78390ff2742",
+							"spark.synapse.context.pipelinejobid": "b2695df8-5ec6-409b-9cd8-d55871c30dbb",
+							"spark.synapse.context.activityrunid": "28873d57-1f10-40db-b5bc-8ea06369ec69",
+							"spark.synapse.context.notebookname": "nb_test",
+							"spark.synapse.context.activityname": "Notebook1",
+							"spark.livy.synapse.skipSplitCodeExecution.enabled": "true",
+							"livy.rsc.synapse.statement-output-for-error.enabled": "true",
+							"spark.synapse.nbs.runid": "28873d57-1f10-40db-b5bc-8ea06369ec69",
+							"spark.synapse.nbs.kernelid": "",
+							"spark.livy.synapse.ipythonInterpreter.enabled": "true",
+							"livy.rsc.synapse.ipython-interpreter.options.ZMQInteractiveShell.display_page": "True"
+						}
+					},
+					"idleAt": "2024-11-28T19:35:51.8543252Z",
+					"notStartedAt": null,
+					"startingAt": "2024-11-28T19:35:19.6525305Z",
+					"deadAt": null,
+					"shuttingDownAt": null,
+					"killedAt": null,
+					"recoveringAt": null,
+					"busyAt": "2024-11-28T19:36:24.071393Z",
+					"errorAt": null,
+					"currentState": "idle"
+				},
+				"schedulerInfo": {
+					"submittedAt": "2024-11-28T19:35:00.3458481Z",
+					"queuedAt": "2024-11-28T19:35:00.7558678Z",
+					"scheduledAt": "2024-11-28T19:35:11.0289991Z",
+					"endedAt": null,
+					"cancellationRequestedAt": null,
+					"currentState": "Scheduled"
+				},
+				"pluginInfo": {
+					"currentState": "monitoring",
+					"preparationStartedAt": "2024-11-28T19:35:13.0545374Z",
+					"resourceAcquisitionStartedAt": "2024-11-28T19:35:15.0860626Z",
+					"submissionStartedAt": "2024-11-28T19:35:19.2898984Z",
+					"monitoringStartedAt": "2024-11-28T19:35:21.6809583Z",
+					"cleanupStartedAt": null
+				},
+				"registeredSources": [
+					"default"
+				],
+				"tags": {},
+				"systemStorageAccountType": null,
+				"artifactId": "Livy",
+				"computeName": "sparkSmall",
+				"jobType": "SparkSession"
+			},
+			"result": {
+				"runId": "28873d57-1f10-40db-b5bc-8ea06369ec69",
+				"runStatus": "Succeeded",
+				"message": "Notebook execution is in Succeeded state, runId: 28873d57-1f10-40db-b5bc-8ea06369ec69",
+				"sparkPool": "sparkSmall",
+				"notebookSnapshotUrl": "https://ab-dev-synapse.dev.azuresynapse.net/runnotebookapi/versions/2022-03-01-preview/pipelinerun/28873d57-1f10-40db-b5bc-8ea06369ec69/snapshot",
+				"notebookSnapshotStudioUrl": "https://web.azuresynapse.net/monitoring/pipelineruns/b2695df8-5ec6-409b-9cd8-d55871c30dbb?workspace=/subscriptions/05997170-d7c1-451d-95b7-6d5011d52907/resourceGroups/ab_rg/providers/Microsoft.Synapse/workspaces/ab-dev-synapse&snapshotId=28873d57-1f10-40db-b5bc-8ea06369ec69",
+				"exitValue": "IR-CC",
+				"sessionId": "4",
+				"lastCheckedOn": "2024-11-28T19:36:36.93Z"
+			}
+		},
+		"Error": null,
+		"ExecutionDetails": {}
+	},
+	"effectiveIntegrationRuntime": "AutoResolveIntegrationRuntime (Central India)",
+	"executionDuration": 106,
+	"durationInQueue": {
+		"integrationRuntimeQueue": 0
+	},
+	"billingReference": {
+		"activityType": "ExternalActivity",
+		"billableDuration": [
+			{
+				"meterType": "AzureIR",
+				"duration": 0.03333333333333333,
+				"unit": "Hours"
+			}
+		]
+	}
+}
+
+--@json(activity('exit').output.result.exitValue.snitt)
